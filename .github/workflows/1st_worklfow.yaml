@@ -11,3 +11,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your projectss.
+      - name: runner dir
+        run: pwd
+      - name: list files  
+        run: ls -la

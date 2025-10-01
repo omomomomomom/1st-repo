@@ -17,3 +17,6 @@ jobs:
         run: ls -la
       - name: workspace dir
         run: echo $GITHUB_WORKSPACE
+      - name: Change Working Directory
+        run: pwd
+        working-directory: /home/runner

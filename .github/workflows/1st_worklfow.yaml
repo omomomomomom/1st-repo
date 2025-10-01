@@ -15,3 +15,5 @@ jobs:
         run: pwd
       - name: list files  
         run: ls -la
+      - name: workspace dir
+        run: echo $GITHUB_WORKSPACE

@@ -15,5 +15,5 @@ jobs:
               issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Hello, this is a comment from the pull_request_comment workflow 01!'
+              body: 'Hello, this is a comment from the pull_request_comment workflow 0100!'
             })

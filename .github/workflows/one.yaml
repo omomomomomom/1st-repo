@@ -1,7 +1,7 @@
 name: one event
 on: 
     workflow_run:
-      workflows: ["two event"]
+      workflows: [two event]
       types: [completed]
 jobs:
   run-other-job:    

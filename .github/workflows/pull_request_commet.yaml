@@ -6,7 +6,7 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - name: Comment on Pull Requests
+      - name: Comment on Pull Requestss
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

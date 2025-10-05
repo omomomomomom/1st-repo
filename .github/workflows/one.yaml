@@ -1,0 +1,12 @@
+name: one event
+on: 
+    workflow_run:
+      workflows: ["two event"]
+      types:
+        - completed
+jobs:
+  run-other-job:    
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run another job
+        run: echo "This is another job triggered by the two event job"

@@ -1,0 +1,8 @@
+name: two event
+on: [push, workflow_dispatch]
+jobs:
+  run-another-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run another job
+        run: echo "This is two event job"

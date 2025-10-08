@@ -1,0 +1,13 @@
+name: checking the env var
+on: [push]
+jobs:
+  check-env-var:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the environment variable
+        run: echo "The value of MY_ENV_VAR is $MY_ENV_VAR"
+        env:
+          MY_ENV_VAR: "env variable value"
+          RANDOM_VAR: ${{ github.run_id }}
+      - name: Another step to demonstrate env var usage
+        run: echo "The value of RANDOM_VAR is $RANDOM_VAR"

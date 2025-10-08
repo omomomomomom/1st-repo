@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MY_ENV_VAR: env variable value
-      RANDOM_VAR: ${{ github.run_id }}
+      RANDOM_VAR: ${{ github.workflow_ref }}
     steps:
       - name: Check the environment variable
         run: |

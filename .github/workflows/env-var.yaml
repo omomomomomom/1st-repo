@@ -3,6 +3,7 @@ on: [push]
 jobs:
   check-env-var:
     runs-on: ubuntu-latest
+    environment: dev
     env:
       MY_ENV_VAR: env variable value
       RANDOM_VAR: ${{ github.workflow_ref }}
@@ -18,11 +19,5 @@ jobs:
           echo "The value of MY_STEP_VAR is $MY_STEP_VAR"
           echo "The value of RANDOM_VAR is $RANDOM_VAR"
           echo "The value of MY_ENV_VAR is still $MY_ENV_VAR"
+          echo "The value of DEV_VAR is $DEV_VAR"
                     
-      - name: Another step to demonstrate env var usage
-        run: |
-          echo "DEV  var is $DEV_VAR"
-          echo "prod var is $ENV_VAR"
-        env:
-          DEV_VAR: ${{ vars.DEV_VAR }}
-          ENV_VAR: ${{ vars.ENV_VAR }}

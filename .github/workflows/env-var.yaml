@@ -18,3 +18,5 @@ jobs:
           echo "The value of MY_STEP_VAR is $MY_STEP_VAR"
           echo "The value of RANDOM_VAR is $RANDOM_VAR"
           echo "The value of MY_ENV_VAR is still $MY_ENV_VAR"
+          echo "secret var is ${{ secrets.DEV_SECRET }}"
+          echo "prod var is ${{ vars.ENV_VAR }}"

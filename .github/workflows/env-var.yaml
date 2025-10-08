@@ -10,4 +10,6 @@ jobs:
           MY_ENV_VAR: "env variable value"
           RANDOM_VAR: ${{ github.run_id }}
       - name: Another step to demonstrate env var usage
-        run: echo "The value of RANDOM_VAR is $RANDOM_VAR"
+        run: |
+          echo "The value of RANDOM_VAR is $RANDOM_VAR"
+          echo "The value of MY_ENV_VAR is still $MY_ENV_VAR"

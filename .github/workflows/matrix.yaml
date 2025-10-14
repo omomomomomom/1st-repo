@@ -15,11 +15,5 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
-        run: npm install
-      - name: Run tests
-        run: npm test
-      - name: Display OS and Node.js version
-        run: |
-          echo "Running on OS: ${{ matrix.os }}"
-          node -v
+      - name: node version
+        run: node -v

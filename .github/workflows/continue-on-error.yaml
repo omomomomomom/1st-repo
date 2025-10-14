@@ -1,0 +1,22 @@
+name: contineue-on-error
+on: [push]
+jobs:
+  continue-on-error-job:
+    runs-on: ubuntu-latest    
+    steps:
+      - name: This step will fail but the job will continue
+        run: exit 1
+      - name: This step will run even if the previous step failed
+        run: echo "This step ran despite the previous failure."
+      - name: Final step
+        run: echo "This is the final step."
+  continue-on-error-job-2:
+    runs-on: ubuntu-latest    
+    steps:
+      - name: This step will fail but the job will continue
+        run: exit 1
+        continue-on-error: true
+      - name: This step will run even if the previous step failed
+        run: echo "This step ran despite the previous failure."
+      - name: Final step
+        run: echo "This is the final step."  

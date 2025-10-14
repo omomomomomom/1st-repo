@@ -7,7 +7,7 @@ jobs:
       matrix:
           node-version: [14, 16, -3]
           os: [ubuntu-latest]
-      fail-fast: true
+      fail-fast: false
     steps:
       - name: node version
         run: node -v

@@ -1,0 +1,43 @@
+name: Dynamic Matrix
+
+on:
+  workflow_dispatch:
+    inputs:
+      operating-system:
+        description: "Comma-separated OS list"
+        default: "ubuntu-latest,windows-latest"
+        type: string
+      node-version:
+        description: "Comma-separated Node versions"
+        default: "14,15,16"
+        type: string
+
+jobs:
+  prepare-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix-arrays: ${{ steps.matrix-arrays.outputs.result }}
+
+    steps:
+      - name: Convert string inputs to arrays
+        id: matrix-arrays
+        uses: actions/github-script@v6
+        with:
+          result-encoding: json
+          script: |
+            return {
+              os: context.payload.inputs["operating-system"].split(","),
+              node: context.payload.inputs["node-version"].split(",")
+            }
+
+  node-matrix:
+    needs: prepare-matrix
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ${{ fromJson(needs.prepare-matrix.outputs['matrix-arrays']).os }}
+        node: ${{ fromJson(needs.prepare-matrix.outputs['matrix-arrays']).node }}
+
+    steps:
+      - name: Show matrix info
+        run: echo "Running on ${{ matrix.os }} with Node ${{ matrix.node }}"

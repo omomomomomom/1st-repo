@@ -2,13 +2,13 @@ name: matrix example
 on: [push]
 jobs:
   build:
-    continue-on-error: false
+    continue-on-error: true
     runs-on: ubuntu-latest
     strategy:
       matrix:
           node-version: [14, 16, -3]
           os: [ubuntu-latest]
-      fail-fast: true
+      fail-fast: false
     steps:
       - name: node version
         run: node -v

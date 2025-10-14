@@ -10,8 +10,9 @@ jobs:
           os: [ubuntu-latest]
       fail-fast: true
     steps:
-      - name: node version
-        run: node -v
+      - name: sleep for 20 seconds
+        if: matrix.node-version != -3
+        run: sleep 20
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:

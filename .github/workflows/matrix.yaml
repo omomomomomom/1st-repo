@@ -1,0 +1,25 @@
+name: matrix example
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14, 16, -3]
+        os: [ubuntu-latest]
+        fail-fast: false
+    steps:
+      - name: node version
+        run: node -v
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test
+      - name: Display OS and Node.js version
+        run: |
+          echo "Running on OS: ${{ matrix.os }}"
+          node -v

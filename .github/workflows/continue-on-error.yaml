@@ -2,6 +2,7 @@ name: contineue-on-error
 on: [push]
 jobs:
   continue-on-error-job:
+    continue-on-error: true
     runs-on: ubuntu-latest    
     steps:
       - name: This step will fail but the job will continue

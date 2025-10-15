@@ -16,6 +16,6 @@ jobs:
       - name: Echo input name
         run: echo "Hello, ${{ inputs.name }}"
       - name: secret
-        run: echo "Secret is ${{ secrets.GITHUB_TOKEN }}"
+        run: echo "Secret is ${{ secrets.REPO_SECRETE }}"
       - name: user, repo and branch name
         run: echo "User is ${{ github.repository_owner }}, repo is ${{ github.event.repository.name }}, branch is ${{ github.ref_name }}"

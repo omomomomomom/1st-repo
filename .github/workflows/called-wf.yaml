@@ -6,7 +6,7 @@ on:
         required: true
         type: string
     secrets:
-      REPO_SECRETE:
+      SECRETE_REPO:
         required: true
 
 jobs:
@@ -16,6 +16,6 @@ jobs:
       - name: Echo input name
         run: echo "Hello, ${{ inputs.name }}"
       - name: secret
-        run: echo "Secret is ${{ secrets.REPO_SECRETE }}"
+        run: echo "Secret is ${{ secrets.SECRETE_REPO }}"
       - name: user, repo and branch name
         run: echo "User is ${{ github.repository_owner }}, repo is ${{ github.event.repository.name }}, branch is ${{ github.ref_name }}"

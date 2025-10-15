@@ -8,8 +8,8 @@ on:
         default: 'World'
 jobs:
   call-workflow:
-    uses: om121200acc/repo-for-om121200acc/.github/workflows/called-wf.yaml@new-branch
+    uses: omomomomomom/1st-repo/.github/workflows/called-wf.yaml@new-branch
     with:
       name: ${{ github.event.inputs.name }}
     secrets:
-      GITHUB_TOKEN: ${{ secrets.REPO_SECRETE }}
+      REPO_SECRET: ${{ secrets.REPO_SECRET }}

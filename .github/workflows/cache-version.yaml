@@ -8,12 +8,9 @@ jobs:
             - name: Npm install
               uses: actions/setup-node@v3
               with:
-                    node-version: '16'  
+                    node-version: '16'
+                    cache: 'npm'
             - run: |
                 npm install axios
                 npm install lodash
-            - name: Cache node module
-              uses: actions/cache@v3
-              with:
-                  path: ~/.npm
-                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+

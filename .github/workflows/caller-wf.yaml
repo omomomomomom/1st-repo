@@ -1,0 +1,14 @@
+name: caller workflow
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Name to greet'
+        required: true
+        default: 'World'
+jobs:
+  call-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call another workflow
+        uses: ./.github/workflows/called-wf.yaml@new-branch

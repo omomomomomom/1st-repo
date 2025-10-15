@@ -1,18 +1,22 @@
 name: workflow for sotring cache
 on:
-    workflow_dispatch:
+  workflow_dispatch:
 jobs:
-    cache-version:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Create package.json
-              run: npm init -y
-            - name: Npm install
-              uses: actions/setup-node@v3
-              with:
-                    node-version: '16'
-                    cache: 'npm'
-            - run: |
-                npm install axios
-                npm install lodash
+  cache-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create package.json
+        run: npm init -y
 
+      - name: Generate lock file
+        run: npm install --package-lock-only 
+
+      - name: Npm install with cache
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      - run: |
+          npm install axios
+          npm install ci

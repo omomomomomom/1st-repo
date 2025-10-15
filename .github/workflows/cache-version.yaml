@@ -20,3 +20,4 @@ jobs:
       - run: |
           npm install axios
           npm install ci
+            npm install lodash

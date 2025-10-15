@@ -8,7 +8,8 @@ on:
         default: 'World'
 jobs:
   call-workflow:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Call another workflow
-        uses: ./.github/workflows/called-wf.yaml@new-branch
+    uses: ./.github/workflows/called-wf.yaml@new-branch
+    with:
+      name: ${{ github.event.inputs.name }}
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.REPO_SECRETE }}

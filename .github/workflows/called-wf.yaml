@@ -6,7 +6,7 @@ on:
         required: true
         type: string
     secrets:
-      GITHUB_TOKEN:
+      REPO_SECRETE:
         required: true
 
 jobs:

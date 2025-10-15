@@ -9,7 +9,9 @@ jobs:
               uses: actions/setup-node@v3
               with:
                     node-version: '16'  
-            - run: npm install axios
+            - run: |
+                npm install axios
+                npm install lodash
             - name: Cache node module
               uses: actions/cache@v3
               with:

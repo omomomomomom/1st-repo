@@ -5,6 +5,8 @@ jobs:
     cache-version:
         runs-on: ubuntu-latest
         steps:
+            - name: Create package.json
+              run: npm init -y
             - name: Npm install
               uses: actions/setup-node@v3
               with:

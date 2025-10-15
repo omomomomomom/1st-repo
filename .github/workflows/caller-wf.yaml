@@ -12,4 +12,4 @@ jobs:
     with:
       name: ${{ github.event.inputs.name }}
     secrets:
-      REPO_SECRET: ${{ secrets.REPO_SECRET }}
+      REPO_SECRETE: ${{ secrets.REPO_SECRETE }}

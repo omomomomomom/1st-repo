@@ -1,0 +1,13 @@
+name: use Docker in GHA
+on: [workflow_dispatch]
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        container: #add alpine node version
+            image: node:14-alpine  
+        steps:
+            - name: Check Node version and OS version
+              run: |
+                node --version
+                cat /etc/os-release
+

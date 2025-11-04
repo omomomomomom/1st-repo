@@ -10,4 +10,14 @@ jobs:
               run: |
                 node --version
                 cat /etc/os-release
+            - name: container for step
+              uses: docker://node:14-alpine
+              with:
+                  entrypoint: D:\VS_node_JS\node.exe
+                  args: |
+                      -p 2 + 3
+            - name: container steps 2   
+              uses: docker://node:16-alpine
+              with:
+                  args: --version
 

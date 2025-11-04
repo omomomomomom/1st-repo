@@ -14,7 +14,7 @@ jobs:
               uses: docker://node:14-alpine
               with:
                   args: |
-                      -p 2 + 3
+                      -p 2+3
                       type node
             - name: container steps 2   
               uses: docker://node:16-alpine

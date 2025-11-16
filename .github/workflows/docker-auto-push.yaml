@@ -1,0 +1,34 @@
+#create a docker image and push to docker hub when we publish new realease 
+name: Docker Auto Push
+on:
+  release:
+    types: [published]
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+        #use docker metadata-action action to set tags
+      - name: extrack metadata
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+              images: your-dockerhub-username/your-repo-name
+              tags: |
+                type=ref,event=release
+        
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: your-dockerhub-username/your-repo-name:latest
